@@ -5,6 +5,7 @@ import { ethers } from "ethers";
 const useBalance = (address) => {
     const [balance, setBalance] = useState("0");
     const { provider } = useConnection();
+
     useEffect(() => {
         if (!address) return;
         provider

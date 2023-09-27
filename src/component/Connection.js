@@ -4,13 +4,12 @@ import { shortenAccount } from "../utils";
 import { networkInfoMap, supportedChains } from "../constants";
 import { Menu, Transition } from "@headlessui/react";
 import useBalance from "../hooks/useBalance";
-import useCampaigns from "../hooks/useCampaigns";
 
 const Connection = () => {
     const { account, chainId, isActive, connect, switchToChain } =
         useConnection();
     const ethBalance = useBalance(account);
-    // const campaigns = useCampaigns();
+
 
     if (!account)
         return (
@@ -27,7 +26,6 @@ const Connection = () => {
                 <span>{`${Number(ethBalance).toFixed(2)}ETH`}</span>
                 <span>{shortenAccount(account)}</span>
             </div>
-            {/* <div>{campaigns}</div> */}
             <div className="flex gap-2 items-center">
                 {supportedChains.map((chain) => {
                     if (chain === chainId) return null;
